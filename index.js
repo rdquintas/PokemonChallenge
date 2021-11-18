@@ -1,3 +1,9 @@
-console.log("hey");
-var myArgs = process.argv.slice(2);
-console.log('myArgs: ', myArgs);
+for (let index = 0; index < 10; index++) {
+    console.log('ola1');  
+}
+
+console.log('======================================='); 
+
+for (let index = 0; index < 10; index++) {
+    console.log('ola2');  
+}
