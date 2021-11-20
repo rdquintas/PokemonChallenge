@@ -41,5 +41,5 @@ etc...
 # Branches (código de cada versão)
  - ### v.1 - versão inicial
    Esta versão inclui a versão inicial da aplicação.
- - ### v.2 - versão inicial
-   Esta versão inclui etc...
+ - ### v.2 - inclusão dos testes
+   Nesta versão foi acrescentada a framework de testes [MOCHA](https://mochajs.org/) 
