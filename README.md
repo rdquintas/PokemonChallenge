@@ -1,4 +1,4 @@
-# App | v.1
+# App | v.2
 
 ## DESCRIÇÃO
 Esta aplicação pretende resolver o seguinte problema/enunciado:
