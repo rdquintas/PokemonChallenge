@@ -3,8 +3,8 @@ var sInputString = process.argv[2] ? process.argv[2] : "";
 //var sInputString = "NNNEESSEEENNOOO";
 var oCoordenadasOndeEstou = { x: 0, y: 0 };
 var iPokemonsAcumulados = 1;
-var aGrid = [["S"]];
-var iColunas = 0;
+var aGrid = [["S"]]; // a grid é inicializada com a posição inicial "S"
+var iColunasDaGrid = 0;
 
 
 for (let i = 0; i < sInputString.length; i++) {
@@ -16,18 +16,20 @@ for (let i = 0; i < sInputString.length; i++) {
 //desenhaGrid();
 apresentaResultado();
 
-
-function validaChar(sChar) {
-    if (sChar !== "N" && sChar !== "S" && sChar !== "E" && sChar !== "O") {
-        throw (`O caracter '${sChar}' não é válido`);
+// valida se a coordenada é válida
+function validaChar(sCoordenada) {
+    if (sCoordenada !== "N" && sCoordenada !== "S" && sCoordenada !== "E" && sCoordenada !== "O") {
+        throw (`O caracter '${sCoordenada}' não é válido`);
     }
 }
 
-function daUmPasso(sChar) {
-    actualizaGrid(sChar);
+// dá um passo na direcção da coordenada fornecida
+function daUmPasso(sCoordenada) {
+    actualizaGrid(sCoordenada);
     apanhaPokemon();
 }
 
+// actualiza o contador de pokemons e limpa-o da grid
 function apanhaPokemon() {
     if (aGrid[oCoordenadasOndeEstou.y][oCoordenadasOndeEstou.x] && aGrid[oCoordenadasOndeEstou.y][oCoordenadasOndeEstou.x] === "X") {
         aGrid[oCoordenadasOndeEstou.y][oCoordenadasOndeEstou.x] = ".";
@@ -39,26 +41,19 @@ function apresentaResultado() {
     console.log(iPokemonsAcumulados);
 }
 
-function actualizaGrid(sChar) {
-    switch (sChar) {
-        case "N":
-            actualizaGridLinhas("up");
-            break;
-        case "S":
-            actualizaGridLinhas("down");
-            break;
-        case "E":
-            actualizaGridColunas("direita");
-            break;
-        case "O":
-            actualizaGridColunas("esquerda");
-            break;
+// actualiza a grid em cada nova coordenada
+function actualizaGrid(sCoordenada) {
+    if (sCoordenada === "N" || sCoordenada === "S") {
+        actualizaGridLinhas(sCoordenada);
+    } else {
+        actualizaGridColunas(sCoordenada);
     }
 }
 
-function actualizaGridLinhas(sUpOrDown) {
-    switch (sUpOrDown) {
-        case "up":
+// move para nova posicao Y e, caso ultrapasse o limite da grid, cria nova LINHA
+function actualizaGridLinhas(sNorteSul) {
+    switch (sNorteSul) {
+        case "N":
             if (oCoordenadasOndeEstou.y - 1 < 0) {
                 aGrid.unshift(criaNovaLinha());
                 oCoordenadasOndeEstou.y = 0;
@@ -66,7 +61,7 @@ function actualizaGridLinhas(sUpOrDown) {
                 oCoordenadasOndeEstou.y--;
             }
             break;
-        case "down":
+        case "S":
             if (!aGrid[oCoordenadasOndeEstou.y + 1]) {
                 aGrid.push(criaNovaLinha());
                 oCoordenadasOndeEstou.y++;
@@ -79,22 +74,22 @@ function actualizaGridLinhas(sUpOrDown) {
             break;
     }
 }
-
-function actualizaGridColunas(sDireitaOuEsquerda) {
-    switch (sDireitaOuEsquerda) {
-        case "esquerda":
+// move para nova posicao X e, caso ultrapasse o limite da grid, cria nova COLUNA
+function actualizaGridColunas(sEsteOeste) {
+    switch (sEsteOeste) {
+        case "O":
             if (oCoordenadasOndeEstou.x - 1 < 0) {
-                iColunas++;
+                iColunasDaGrid++;
                 oCoordenadasOndeEstou.x = 0;
                 criaNovaColuna(true);
             } else {
                 oCoordenadasOndeEstou.x--;
             }
             break;
-        case "direita":
-            if (oCoordenadasOndeEstou.x + 1 > iColunas) {
-                iColunas++;
-                oCoordenadasOndeEstou.x = iColunas;
+        case "E":
+            if (oCoordenadasOndeEstou.x + 1 > iColunasDaGrid) {
+                iColunasDaGrid++;
+                oCoordenadasOndeEstou.x = iColunasDaGrid;
                 criaNovaColuna(false);
             } else {
                 oCoordenadasOndeEstou.x++;
@@ -106,6 +101,7 @@ function actualizaGridColunas(sDireitaOuEsquerda) {
     }
 }
 
+// acrescenta uma nova coluna à grid (pode ser à esquerda ou direita)
 function criaNovaColuna(bEsquerda) {
     for (let i = 0; i < aGrid.length; i++) {
         var aLinha = aGrid[i];
@@ -117,17 +113,18 @@ function criaNovaColuna(bEsquerda) {
     };
 }
 
+// acrescenta uma nova linha à grid (pode ser em cima ou em baixo)
 function criaNovaLinha() {
-    var aNewLinha = new Array(iColunas + 1);
+    var aNewLinha = new Array(iColunasDaGrid + 1);
     for (let i = 0; i < aNewLinha.length; i++) {
         aNewLinha[i] = "X";
     }
     return aNewLinha;
 }
 
+// escreve a grid na consola
 function desenhaGrid() {
     var sLinha = "";
-    console.log("sInputString: " + sInputString);
     console.log("--------------------------------------------");
     for (let i = 0; i < aGrid.length; i++) {
         for (let ii = 0; ii < aGrid[i].length; ii++) {

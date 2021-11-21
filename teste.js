@@ -1,5 +1,5 @@
 
-var iColunas = 23;
+var iColunas = 3;
 var iLinhas = 3;
 var aGrid = [];
 
