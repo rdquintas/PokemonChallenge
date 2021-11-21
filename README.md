@@ -19,12 +19,27 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
   > O programa deve escrever uma linha para o stdout, apenas com um número: quantos pokémons o Ash
   > apanhou?
 
-## COMO COMPILAR A APP
- - Fazer `git clone` do seguinte repo [https://github.com/rdquintas/ricardoquintas.com.git](https://github.com/rdquintas/ricardoquintas.com.git)
- - A aplicação corre em NODEJS. É necessário ter o NODEJS instalado. Podes fazer o download [aqui](https://nodejs.dev/)
- - No folder da app coorer o comando `npm instal` para instalar as dependências necessárias para correr a aplicação
+## DOCUMENTAÇÃO TÉCNICA
+  - A aplicação corre em NODEJS. É necessário ter o NODEJS instalado. Podes fazer o download [aqui](https://nodejs.dev/)
+  - Utiliza a seguinte framework de testes:
+    - [Mocha](https://mochajs.org/)
+    - [Chai](https://www.chaijs.com/) 
+  - A app tem a seguinte estrutura
 
-## COMO EXECUTAR A APP
+      ![](/docs/img1.jpg)
+
+    - **/app.js**: contém o código da nossa app
+    - **/index.js**: utilizado para correr em modo consola
+    - **/web.js**: utlizado para correr em modo web/rest api
+    - **/tests**: folder onde estão os nossos testes
+    - **/docs**: tem alguns ficheiros utilitários da app (img do readme, etc...)
+
+
+## COMO COMPILAR A APP ?
+ - Fazer `git clone` do seguinte repo [https://github.com/rdquintas/ricardoquintas.com.git](https://github.com/rdquintas/ricardoquintas.com.git)
+ - No folder da app coorer o comando `npm install` para instalar as dependências necessárias para correr a aplicação
+
+## COMO EXECUTAR A APP ?
   - No folder da app correr o comando `node index` com o input necessário. Alguns exemplos: (a aplicação aceita input em lowercase)
     - `node index NN`
     - `node index NSEO`
@@ -33,7 +48,7 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
     - `node index nnSNeeEE`
 
 
-## COMO CORRER OS TESTES
+## COMO CORRER OS TESTES ?
 etc...
 
 ---
