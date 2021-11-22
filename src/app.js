@@ -27,6 +27,9 @@ App.prototype.validaChar = function (sCoordenada) {
 
 // dá um passo na direcção da coordenada fornecida
 App.prototype.daUmPasso = function (sCoordenada) {
+    if (!sCoordenada) {
+        throw ("É necessário uma coordenada");
+    }
     this.actualizaGrid(sCoordenada);
     this.apanhaPokemon();
 }
@@ -73,10 +76,11 @@ App.prototype.actualizaGridLinhas = function (sNorteSul) {
             }
             break;
         default:
-            throw ("A função actualizaGridLinhas apenas aceita 'up' ou 'down'");
+            throw ("A função actualizaGridLinhas apenas aceita 'N' ou 'S'");
             break;
     }
 }
+
 // move para nova posicao X e, caso ultrapasse o limite da grid, cria nova COLUNA
 App.prototype.actualizaGridColunas = function (sEsteOeste) {
     switch (sEsteOeste) {
@@ -93,19 +97,22 @@ App.prototype.actualizaGridColunas = function (sEsteOeste) {
             if (this.oCoordenadasOndeEstou.x + 1 > this.iColunasDaGrid) {
                 this.iColunasDaGrid++;
                 this.oCoordenadasOndeEstou.x = this.iColunasDaGrid;
-                criaNovaColuna(false);
+                this.criaNovaColuna(false);
             } else {
                 this.oCoordenadasOndeEstou.x++;
             }
             break;
         default:
-            throw ("A função actualizaGridColunas apenas aceita 'direita' ou 'esquerda'");
+            throw ("A função actualizaGridColunas apenas aceita 'E' ou 'O'");
             break;
     }
 }
 
 // acrescenta uma nova coluna à grid (pode ser à esquerda ou direita)
 App.prototype.criaNovaColuna = function (bEsquerda) {
+    if (typeof bEsquerda !== "boolean") {
+        throw ("O argumento bEsquerda tem que ser boolean");
+    }
     for (let i = 0; i < this.aGrid.length; i++) {
         var aLinha = this.aGrid[i];
         if (bEsquerda) {
@@ -139,7 +146,4 @@ App.prototype.desenhaGrid = function () {
     console.log("--------------------------------------------");
 }
 
-
-let app = new App();
-
-module.exports = app;
+module.exports = App;
