@@ -28,7 +28,7 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
 
       ![](/docs/img1.jpg)
 
-    - **/app.js**: contém o código da nossa app
+    - **/src/app.js**: contém o código da nossa app
     - **/index.js**: utilizado para correr em modo consola
     - **/web.js**: utlizado para correr em modo web/rest api
     - **/tests**: folder onde estão os nossos testes
@@ -51,7 +51,7 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
 ## COMO CORRER OS TESTES ?
   - A aplicação utliza a framework de testes [Mocha](https://mochajs.org/). Para executar os testes através da consola é necessário que essa framework já esteja instalada globalmente.  Para tal é necessário correr os seguinte comando `npm install -g mocha`
   - **NOTA IMPORTANTE:** só se deve correr o comando `npm install -g mocha` 1 vez para instalar esse componente - não é necessário executar este comando cada vez que se executam os testes!!
-
+ - No folder da app correr o comando `mocha tests` para correr todos os testes que estão definidos no ficheiro **/tests/appTests.js**. No fim da execução (que poderá demorar alguns segundos a terminar) irá aparecer um relatório com o resutlado desses testes
 
 
 ---
@@ -61,3 +61,5 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
    Esta versão inclui a versão inicial da aplicação.
  - ### v.2 - inclusão dos testes
    Nesta versão foi acrescentada a framework de testes [MOCHA](https://mochajs.org/) e [Chai](https://www.chaijs.com/) 
+ - ### v.3 - api_rest
+   Nesta versão foi incluída a framework [ExpressJS](https://expressjs.com/)  para transformar a nossa app num REST API
