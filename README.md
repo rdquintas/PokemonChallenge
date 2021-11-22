@@ -62,4 +62,4 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
  - ### v.2 - inclusão dos testes
    Nesta versão foi acrescentada a framework de testes [MOCHA](https://mochajs.org/) e [Chai](https://www.chaijs.com/) 
  - ### v.3 - api_rest
-   Nesta versão foi incluída a framework [ExpressJS](https://expressjs.com/)  para transformar a nossa app num REST API
+   Nesta versão foi incluída a framework [ExpressJS](https://expressjs.com/) para transformar a nossa app numa REST API
