@@ -14,8 +14,8 @@ App.prototype.init = function (str) {
         this.daUmPasso(sChar);
     }
 
-    this.desenhaGrid();
-    this.apresentaResultado();
+    // this.escreveGridConsola();
+    // this.escreveResultadoConsola();
 }
 
 // valida se a coordenada é válida
@@ -43,7 +43,7 @@ App.prototype.apanhaPokemon = function () {
     }
 }
 
-App.prototype.apresentaResultado = function () {
+App.prototype.escreveResultadoConsola = function () {
     console.log(this.iPokemonsAcumulados);
 }
 
@@ -133,7 +133,7 @@ App.prototype.criaNovaLinha = function () {
 }
 
 // escreve a grid na consola
-App.prototype.desenhaGrid = function () {
+App.prototype.escreveGridConsola = function () {
     var sLinha = "";
     console.log("--------------------------------------------");
     for (let i = 0; i < this.aGrid.length; i++) {

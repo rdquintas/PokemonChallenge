@@ -229,3 +229,80 @@ describe("App Unit Tests | init('NNNSSSSS')", function () {
         expect(app.iPokemonsAcumulados).to.equal(6);
     })
 });
+
+describe("App Unit Tests | init('NNN SSSSS')", function () {
+    let app = new App();
+    it("Verifica se init('NNN SSSSS') dá erro", function () {
+        expect(function () {
+            app.init("NNN SSSSS");
+        }).to.throw();
+    })
+});
+
+describe("App Unit Tests | init('123')", function () {
+    let app = new App();
+    it("Verifica se init('123') dá erro", function () {
+        expect(function () {
+            app.init("123");
+        }).to.throw();
+    })
+});
+
+describe("App Unit Tests | init(null)", function () {
+    let app = new App();
+    it("Verifica se init(null) dá erro", function () {
+        expect(function () {
+            app.init(null);
+        }).to.throw();
+    })
+});
+
+
+describe("App Unit Tests | init('nnnS')", function () {
+    let app = new App();
+    app.init("nnnS");
+    it("Verifica se aGrid está ok", function () {
+        expect(app.aGrid).to.deep.equal([["."], ["."], ["."], ["S"]]);
+    })
+    it("Verifica se iPokemonsAcumulados = 4", function () {
+        expect(app.iPokemonsAcumulados).to.equal(4);
+    })
+});
+
+
+describe("App Unit Tests | init('NESO')", function () {
+    let app = new App();
+    app.init("NESO");
+    it("Verifica se aGrid está ok", function () {
+        expect(app.aGrid).to.deep.equal([[".", "."], ["S", "."]]);
+    })
+    it("Verifica se iPokemonsAcumulados = 4", function () {
+        expect(app.iPokemonsAcumulados).to.equal(4);
+    })
+});
+
+describe("App Unit Tests | init('NNNEESSEEENNOOO')", function () {
+    let app = new App();
+    app.init("NNNEESSEEENNOOO");
+    it("Verifica se aGrid está ok", function () {
+        expect(app.aGrid).to.deep.equal([
+            [".", ".", ".", ".", ".", "."],
+            [".", "X", ".", "X", "X", "."],
+            [".", "X", ".", ".", ".", "."],
+            ["S", "X", "X", "X", "X", "X"]]);
+    })
+    it("Verifica se iPokemonsAcumulados = 15", function () {
+        expect(app.iPokemonsAcumulados).to.equal(15);
+    })
+});
+
+describe("App Unit Tests | init() - utilizando JSON com 4MB de DADOS!!", function () {
+    let app = new App();
+    var oDadosDeTeste = require('./dadosDeTeste.json');
+    app.init(oDadosDeTeste.data);
+
+    it("Verifica se iPokemonsAcumulados = 845961", function () {
+        expect(app.iPokemonsAcumulados).to.equal(845961);
+    })
+});
+
