@@ -31,6 +31,7 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
     - **/src/app.js**: contém o código da nossa app
     - **/index.js**: utilizado para correr em modo consola
     - **/web.js**: utlizado para correr em modo web/rest api
+    - **/index.html**: utilizado pelo Express quando corremos em modo web/res api
     - **/tests**: folder onde estão os nossos testes
     - **/docs**: tem alguns ficheiros utilitários da app (img do readme, etc...)
 
@@ -39,13 +40,19 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
  - Fazer `git clone` do seguinte repo [https://github.com/rdquintas/ricardoquintas.com.git](https://github.com/rdquintas/ricardoquintas.com.git)
  - No folder da app coorer o comando `npm install` para instalar as dependências necessárias para correr a aplicação
 
-## COMO EXECUTAR A APP ?
+## COMO EXECUTAR A APP ? (na consola)
   - No folder da app correr o comando `node index` com o input necessário. Alguns exemplos: (a aplicação aceita input em lowercase)
     - `node index NN`
     - `node index NSEO`
     - `node index NNNSSEE`
     - `node index nnn`
     - `node index nnSNeeEE`
+
+## COMO EXECUTAR A APP ? (como REST API)
+ - Também é possível correr a app como se fosse uma REST API. Para tal foi criado um serviço web à volta do código usando [Express](https://expressjs.com/) que mostra uma página
+  web para testarmos o nosso serviço
+ - No folder da app correr o comando `node web` que irá lançar uma página no [http://localhost:3000/](http://localhost:3000/)
+ - Esta página irá buscar os dados à nossa app em formato JSON
 
 
 ## COMO CORRER OS TESTES ?
