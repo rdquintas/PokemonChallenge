@@ -36,7 +36,7 @@ Esta aplicação pretende resolver o seguinte problema/enunciado:
 
 
 ## COMO COMPILAR A APP ?
- - Fazer `git clone` do seguinte repo [https://github.com/rdquintas/ricardoquintas.com.git](https://github.com/rdquintas/ricardoquintas.com.git)
+ - Fazer `git clone` do seguinte repo [https://github.com/rdquintas/PokemonChallenge.git](https://github.com/rdquintas/PokemonChallenge.git)
  - No folder da app coorer o comando `npm install` para instalar as dependências necessárias para correr a aplicação
 
 ## COMO EXECUTAR A APP ?
